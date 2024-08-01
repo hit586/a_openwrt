@@ -50,15 +50,8 @@ jobs:
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
-    - name: Setup SSH
-      uses: appleboy/ssh-action@v0.1.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.SSH_PORT }}
-        script: |
-          echo "SSH connection established"
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
             
     - name: Clone source code
       working-directory: /workdir
