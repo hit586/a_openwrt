@@ -49,9 +49,6 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
             
     - name: Clone source code
       working-directory: /workdir
@@ -161,3 +158,6 @@ jobs:
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
